@@ -11,12 +11,21 @@ PUBLIC DOMAIN, NO COPYRIGHTS, NO PATENTS.
 <body>
 <div id = "listdiv" style = "display:none"><?php
 
-echo file_get_contents("list.txt");
+//echo file_get_contents("list.txt");
+$files = scandir(getcwd()."/images");
+$listtext = "";
+foreach(array_reverse($files) as $value){
+    if($value != "." && $value != ".."){
+        $listtext .= $value.",";
+    }
+}
+echo $listtext;
 
 ?></div>
 <p>
     <a href = "editor.php">editor.php</a>
 </p>
+<div class = "button" id = "delete">! DELETE ALL !</div>
 
 <form action="upload.php" method="post" enctype="multipart/form-data">
     Select image to upload:
@@ -36,6 +45,15 @@ echo file_get_contents("list.txt");
             newimg.src = "images/" + imagenames[index];
             document.getElementById("imagescroll").appendChild(newimg);
         }
+    }
+    
+    document.getElementById("delete").onclick = function(){
+        var httpc = new XMLHttpRequest();
+        var url = "deleteallimages.php";        
+        httpc.open("POST", url, true);
+        httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+        httpc.send();//
+        document.getElementById("imagescroll").innerHTML = "";
     }
     
 </script>
@@ -60,6 +78,27 @@ body{
 h1,h2,h3,h4,h5{
     width:100%;
     text-align:center;
+}
+.button{
+    cursor:pointer;
+    border:solid;
+    border-radius:5px;
+    text-align:center;
+    padding-left:1em;
+    padding-right:1em;
+}
+.button:hover{
+    background-color:green;
+}
+.button:active{
+    background-color:yellow;
+}
+#delete{
+    position:absolute;
+    top:1em;
+    right:1em;
+    color:red;
+    border-color:red;
 }
 </style>
 

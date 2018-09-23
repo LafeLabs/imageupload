@@ -40,6 +40,7 @@ EGO DEATH:
     <div class = "php file">php/dnagenerator.txt</div>
 
     <div class = "php file">php/upload.txt</div>
+    <div class = "php file">php/deleteallimages.txt</div>
 
     <div class = "json file">json/dna.txt</div>
 

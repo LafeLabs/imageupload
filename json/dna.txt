@@ -2,6 +2,7 @@
 	{
 		"path":"php",
 		"files":[
+			"deleteallimages.txt",
 			"dnagenerator.txt",
 			"editor.txt",
 			"fileloader.txt",
