@@ -29,6 +29,7 @@ echo file_get_contents("list.txt");
 
 <script>
     imagenames = document.getElementById("listdiv").innerHTML.split(",");
+
     for(var index = 0;index < imagenames.length;index++){
         if(imagenames[index].length> 2){
             var newimg = document.createElement("IMG");

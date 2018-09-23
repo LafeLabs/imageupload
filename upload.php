@@ -48,6 +48,10 @@ foreach(array_reverse($files) as $value){
         $listtext .= $value.",";
     }
 }
+
+//list.txt lives in root directory not a labelled code sub directory
+//so that it does *not* get replicated by replicator by *not* getting 
+//picked up by dnagenerator.php
 $file = fopen("list.txt","w");// create new file with this name
 fwrite($file,$listtext); //write data to file
 fclose($file);  //close file
