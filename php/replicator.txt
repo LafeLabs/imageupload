@@ -7,7 +7,7 @@
 
     mkdir("php");
     mkdir("json");
-    mkdir("images")
+    mkdir("images");
 
     foreach($dna as $dirs){
         mkdir($dirs->path);
